@@ -3,7 +3,7 @@ const express = require('express')
 // Passport docs: http://www.passportjs.org/docs/
 const passport = require('passport')
 
-// pull in Mongoose model for examples
+// pull in Mongoose model for exampless
 const Example = require('../models/example')
 
 // this is a collection of methods that help us detect situations when we need
@@ -91,7 +91,7 @@ router.patch('/examples/:id', requireToken, removeBlanks, (req, res, next) => {
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
-    // if an error occurs, pass it to the handler
+    // if an error occurs, pass it to the handlers
     .catch(next)
 })
 
@@ -108,7 +108,7 @@ router.delete('/examples/:id', requireToken, (req, res, next) => {
     })
     // send back 204 and no content if the deletion succeeded
     .then(() => res.sendStatus(204))
-    // if an error occurs, pass it to the handler
+    // if an error occurs, pass it to the handlers
     .catch(next)
 })
 
