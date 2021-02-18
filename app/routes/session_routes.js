@@ -13,10 +13,9 @@ const router = express.Router()
 router.post('/sessions', requireToken, (req, res, next) => {
   // console.log(req.bodysession.startTime)
   req.body.session.owner = req.user.id
-
   Session.create(req.body.session)
     .then(session => {
-      res.status(201).json({ session: session })
+      res.status(201).json({ session: session.toObject() })
     })
     .catch(next)
 })
