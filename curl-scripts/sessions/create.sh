@@ -8,8 +8,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
       "session": {
-        "goals": "'"${GOALS}"'",
-        "review": "'"${REVIEW}"'"
+        "goals": "'"${GOALS}"'"
       }
   }'
 

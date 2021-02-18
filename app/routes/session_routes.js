@@ -36,20 +36,18 @@ router.get('/sessions', requireToken, (req, res, next) => {
 router.get('/sessions/:id', requireToken, (req, res, next) => {
   Session.findById(req.params.id)
     .then(handle404)
-    .then(session => res.status(200).json({ session: session }))
+    .then(session => res.status(200).json({session}))
     .catch()
 })
 
 // Update Route
-router.patch('/sessions/:id', requireToken, removeBlanks, (req, res, next) => {
-  delete req.body.session.owner
-
-  Session.findById(req.params.id)
+router.patch('/sessions/:id/close', requireToken, removeBlanks, (req, res, next) => {
+  const id = req.params.id
+  const sessionData = req.body.session
+  Session.findById(id)
     .then(handle404)
-    .then(session => {
-      requireOwnership(req, session)
-      return session.updateOne(req.body.session)
-    })
+    .then(session => session.updateOne(sessionData))
+    .then(session => console.log(session))
     .then(() => res.sendStatus(204))
     .catch(next)
 })

@@ -6,8 +6,7 @@ const sessionSchema = new mongoose.Schema({
     required: true
   },
   review: {
-    type: String,
-    required: true
+    type: String
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
