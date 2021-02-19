@@ -1,9 +1,14 @@
 const mongoose = require('mongoose')
 
 const sessionSchema = new mongoose.Schema({
-  goals: {
-    type: String,
-    required: true
+  goal1: {
+    type: String
+  },
+  goal2: {
+    type: String
+  },
+  goal3: {
+    type: String
   },
   review: {
     type: String
